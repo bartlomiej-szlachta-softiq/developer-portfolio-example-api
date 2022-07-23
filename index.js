@@ -34,7 +34,7 @@ app.get('/projects', (req, res) => {
     },
     {
       name: 'WhatsApp',
-      description: 'mobilna aplikacja dla smartfonów, służąca jako komunikator internetowy.' +
+      description: 'Mobilna aplikacja dla smartfonów, służąca jako komunikator internetowy.' +
         ' Aplikacja ta jest dostępna dla różnych platform: iOS, Android i KaiOS.' +
         ' Dzięki tej aplikacji można przesyłać wiadomości i pliki multimedialne pomiędzy dwoma telefonami komórkowymi,' +
         ' połączonymi z Internetem. Wymagana jest instalacja aplikacji na telefonie.' +

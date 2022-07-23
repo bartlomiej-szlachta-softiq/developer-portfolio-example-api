@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const http = require('http');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use((req, res, next) => setTimeout(next, 1000 * Math.random()));
+app.use(cors())
 
 app.get('/projects', (req, res) => {
   res.send([

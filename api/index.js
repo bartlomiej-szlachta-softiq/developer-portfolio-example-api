@@ -9,7 +9,8 @@ app.use(bodyParser.json());
 app.use((req, res, next) => setTimeout(next, 1000 * Math.random()));
 app.use(cors());
 
-app.get('/projects', (req, res) => {
+app.get('/api/projects', (req, res) => {
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.send([
     {
       name: 'Aplikacja do zarządzania zadaniami "TaskMaster"',
@@ -30,13 +31,17 @@ app.get('/projects', (req, res) => {
   ]);
 });
 
-app.post('/contact', (req, res) => {
+app.post('/api/contact', (req, res) => {
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.send({
     message: 'Pomyślnie wysłano wiadomość',
   });
 });
 
-app.get('/*', (req, res) => res.sendStatus(404));
+app.get('/api/*', (req, res) => {
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.sendStatus(404)
+});
 
 const server = http.createServer(app);
 
